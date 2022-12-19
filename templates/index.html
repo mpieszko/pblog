@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<title>{% block title %}Inicio{% endblock title %}</title>
+
+{% block contenido %}
+
+
+
+    <!-- ======= Call to a Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-start">
+            <h3>Noticias</h3>
+            <p> Enterate de lo que estuvimos haciendo.</p>
+          </div>
+          <div class="col-lg-4 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#services">Ver las noticias</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Call to a Section -->
+
+
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Noticias</h2>
+          <p>Mirá nuestras actividades:</p>
+        </div>
+
+        <div class="row">
+
+          {% for n in object_list %}
+
+            <div class="container" data-aos="zoom-in">
+              <div class="row">
+                <div class="col-lg text-center text-lg">
+                  <div class="icon-box">
+
+                    <h4><a href="">{{n.titulo}}</a></h4>
+                    {% if n.imagen %} <img src="{{n.imagen.url}}" class = "img-fluid animated" alt="">
+                    {% else %} <img scr="static/assets/img/notidefault.png">
+                    {% endif %}
+                    <h5><a href=""><br>{{n.subtitulo}}</a></h5>
+                    <h6><a href="">{{n.publicado}}</a></h6>
+                    <p>{{n.texto}}</p>
+
+                    <a class="cta-btn align-middle" href="#services"><br>Hacé acá tus comentarios></a>
+
+                  </div>
+                  <section id='' class=''>
+                    <div class="container" data-aos="fade-up"></div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    <section id='' class=''>
+    </section>
+
+
+
+
+
+{% endblock %}
